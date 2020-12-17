@@ -1,0 +1,5 @@
+通用公共类项目
+	编码使用utf-8
+	项目管理构建工具 maven
+	jdk1.8
+	java compiler 1.8
