@@ -14,6 +14,18 @@ public class User {
     private String name;// 姓名
     private int age;// 年龄
     private Date birthday;// 生日
+    // 用户状态
+    private String status;
+
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;
@@ -59,7 +71,14 @@ public class User {
         super();
     }
 
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", age=" + age + ", birthday=" + birthday + ", status=" + status
+            + "]";
+    }
+
 }
+
 
 
 

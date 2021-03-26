@@ -3,7 +3,7 @@ package com.xinyu.test;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.Test;
 
-import com.xinyu.file.util.PropertiesUtil;
+import com.xinyu.file.PropertiesUtil;
 import com.xinyu.util.ExtractContentEnum;
 import com.xinyu.util.StringUtil;
 
@@ -19,14 +19,29 @@ public class TestStringUtil {
     }
 
     public static void main(String[] args) {
-        testExtractContent();
+        TestStringUtil test = new TestStringUtil();
+        test.testExtractContent();
     }
 
     /**
      * 测试从字符串中提取指定内容
      */
     @Test
-    public static void testExtractContent() {
+    public void test() {
+
+        // 提取中文
+        String str = "agh325ior发vdh货后感染2437风光大嫁fgjn化骨粉9063554";
+        String result1 = StringUtil.extractContent(str, null);
+        String result2 = StringUtil.extractContent(str, ExtractContentEnum.NUMBER);
+        System.err.println(result1);
+
+    }
+
+    /**
+     * 测试从字符串中提取指定内容
+     */
+    @Test
+    public void testExtractContent() {
 
         // 提取中文
         String str = "agh325ior发vdh货后感染2437风光大嫁fgjn化骨粉9063554";

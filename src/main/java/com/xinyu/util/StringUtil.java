@@ -141,10 +141,10 @@ public class StringUtil {
     }
 
     /**
-     * @Title:extractContentByString
+     * @Title:extractContent
      * @author:彭嘉
      * @date:2020年11月17日 下午6:43:34  
-     * @Description: 获取字符串中的数字   
+     * @Description: 提取字符串中的指定内容 
      * @param str 待操作的字符串
      * @param extractContentEnum 要提取的数据类型 如中文,数字,等
      * @return 从字符串中提取的内容,null 提取失败
@@ -166,6 +166,7 @@ public class StringUtil {
             logger.info("开始提取字符串中的" + extractContentEnum.getName());
             Pattern p = Pattern.compile(extractContentEnum.getRegex());
             result = p.matcher(str).replaceAll("");
+            logger.info("提取结果" + result);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("提取字符串中的" + extractContentEnum.getName() + "失败", e);

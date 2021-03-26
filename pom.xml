@@ -6,17 +6,19 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.xinyu</groupId>
 	<artifactId>util</artifactId>
 	<version>0.0.3-SNAPSHOT</version>
-	
 
 	<!-- 依赖 -->
 	<dependencies>
 	 <!-- start json解析相关依赖 -->
-
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.74</version>
+		</dependency> 
 	    <dependency>
 		    <groupId>org.codeartisans</groupId>
 		    <artifactId>org.json</artifactId>

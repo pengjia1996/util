@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.xinyu.json.util.GsonUtil;
+import com.xinyu.json.GsonUtil;
 import com.xinyu.orm.User;
 
 /**   

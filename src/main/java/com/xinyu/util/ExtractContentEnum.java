@@ -11,8 +11,7 @@ public enum ExtractContentEnum {
     /**
      * 中文
      */
-    CHINESE("[^\\u4e00-\\u9fa5]",
-        "中文"),
+    CHINESE("[^\\u4e00-\\u9fa5]", "中文"),
 
     /**
      * 数字
@@ -28,11 +27,11 @@ public enum ExtractContentEnum {
         this.name = name;
     }
 
-    String getRegex() {
+    public String getRegex() {
         return regex;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 

@@ -3,7 +3,7 @@ package com.xinyu.test;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.Test;
 
-import com.xinyu.file.util.PropertiesUtil;
+import com.xinyu.file.PropertiesUtil;
 
 /**   
  * @Title:TestPropertiesUtil
@@ -16,11 +16,18 @@ public class TestPropertiesUtil {
         PropertyConfigurator.configure(PropertiesUtil.getLog4jPropertiesUrl());
     }
 
+    public static void main(String[] args) {
+        TestPropertiesUtil test = new TestPropertiesUtil();
+        test.test1();
+    }
+
+    /**
+     * 获取配置文件路径
+     */
     @Test
     public void test1() {
-
-        String propertiesUrl = PropertiesUtil.getValue("url");
-        System.err.println(propertiesUrl);
+        String propertiesUrl = PropertiesUtil.getPropertiesUrl();
+        System.err.println("配置文件路径:" + propertiesUrl);
     }
 }
 
