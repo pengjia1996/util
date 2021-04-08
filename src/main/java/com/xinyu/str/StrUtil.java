@@ -1,4 +1,4 @@
-package com.xinyu.string;
+package com.xinyu.str;
 
 import java.util.regex.Pattern;
 
@@ -12,43 +12,32 @@ import com.xinyu.util.QwyUtil;
  * @date:2020年11月17日 下午2:22:34
  * @Description:字符串公共类
  */
-public class StringUtil {
-    private static Logger logger = Logger.getLogger(StringUtil.class);
+public class StrUtil {
+    private static Logger logger = Logger.getLogger(StrUtil.class);
 
     /**
-     * @param str 要判断的字符
-     * @return boolean true为空,false不为空
-     * @Title:isNull
-     * @author:彭嘉
-     * @date:2020年11月17日 下午2:27:29
-     * @Description: 空判断
+     * 判断字符串是否为空
+     * @param name
+     * @return boolean
+     * 
      */
     public static boolean isNull(String str) {
-        if ((str != null) && !"".equals(str) && !str.equals("null")) {
-            return false;
-        } else {
-            return true;
-        }
+        boolean isNull = str == null || "".equals(str.trim()) || "null".equals(str.trim());
+        logger.info("isNull:" + isNull);
+        return isNull;
 
     }
 
     /**
+     * 大范围空判断字符串是否为空
      * @param str 要判断的字符
      * @return boolean true为空,false不为空
-     * @Title:isNull
-     * @author:彭嘉
-     * @date:2020年11月17日 下午3:16:41
-     * @Description: 大范围空判断
      */
     public static boolean isNull2(String str) {
-        boolean isnull = (str != null) && !"".equals(str.trim()) && !str.equals("null") && !"[]".equals(str.trim()) && !"''".equals(str.trim())
-                && !"\"\"".equals(str.trim()) && !"{}".equals(str.trim());
-        logger.info("isnull:" + isnull);
-        if (isnull) {
-            return false;
-        } else {
-            return true;
-        }
+        boolean isNull = str == null || "".equals(str.trim()) || "null".equals(str.trim()) || "[]".equals(str.trim()) || "''".equals(str.trim())
+            || "\"\"".equals(str.trim()) || "{}".equals(str.trim()) || "undefined".equals(str.trim());
+        logger.info("isNull:" + isNull);
+        return isNull;
 
     }
 
@@ -102,15 +91,13 @@ public class StringUtil {
     }
 
     /**
+     * 将纯数字字符串按照指定方式替换成*
+     * @date 2020年6月15日 下午2:49:46
      * @param numberStr 数字字符串
      * @param startNum  前面要显示的位数
      * @param endNUm    后面要显示的位数
      * @param num       显示的位数,为null时,显示位数为 bankCard.length-(startNum+endNUm)
      * @return String 操作后的字符
-     * @Title replaceNumber
-     * @author 彭嘉
-     * @date 2020年6月15日 下午2:49:46
-     * @Description: 将纯数字字符串按照指定方式替换成*
      */
     public static String replaceNumber(String numberStr, int startNum, int endNUm, Integer num) throws Exception {
         String resultStr = "";
@@ -139,13 +126,11 @@ public class StringUtil {
     }
 
     /**
+     * 提取字符串中的指定内容
      * @param str                待操作的字符串
      * @param extractContentEnum 要提取的数据类型 如中文,数字,等
      * @return 从字符串中提取的内容, null 提取失败
-     * @Title:extractContent
-     * @author:彭嘉
      * @date:2020年11月17日 下午6:43:34
-     * @Description: 提取字符串中的指定内容
      */
     public static String extractContent(String str, ExtractContentEnum extractContentEnum) {
         String result = null;
@@ -172,10 +157,9 @@ public class StringUtil {
     }
 
 
-    /* *
+    /**
      * 字符串格式转换,对格式类似'xxx','xxx','xxx'的字符进行转换
      *
-     * @author pengjia 
      * @date 2021/4/6 11:56 
      * @param str 待转换的字符串
      * @param separated 待转换的字符串的分隔符

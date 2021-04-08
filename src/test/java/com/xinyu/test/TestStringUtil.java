@@ -4,8 +4,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.Test;
 
 import com.xinyu.file.PropertiesUtil;
-import com.xinyu.string.ExtractContentEnum;
-import com.xinyu.string.StringUtil;
+import com.xinyu.str.ExtractContentEnum;
+import com.xinyu.str.StrUtil;
 
 /**   
  * @Title:TestStringUtil
@@ -31,8 +31,8 @@ public class TestStringUtil {
 
         // 提取中文
         String str = "agh325ior发vdh货后感染2437风光大嫁fgjn化骨粉9063554";
-        String result1 = StringUtil.extractContent(str, null);
-        String result2 = StringUtil.extractContent(str, ExtractContentEnum.NUMBER);
+        String result1 = StrUtil.extractContent(str, null);
+        String result2 = StrUtil.extractContent(str, ExtractContentEnum.NUMBER);
         System.err.println(result1);
 
     }
@@ -45,8 +45,8 @@ public class TestStringUtil {
 
         // 提取中文
         String str = "agh325ior发vdh货后感染2437风光大嫁fgjn化骨粉9063554";
-        String result1 = StringUtil.extractContent(str, ExtractContentEnum.CHINESE);
-        String result2 = StringUtil.extractContent(str, ExtractContentEnum.NUMBER);
+        String result1 = StrUtil.extractContent(str, ExtractContentEnum.CHINESE);
+        String result2 = StrUtil.extractContent(str, ExtractContentEnum.NUMBER);
         System.err.println(result1);
         System.err.println(result2);
 

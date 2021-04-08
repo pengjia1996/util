@@ -2,7 +2,7 @@ package com.xinyu.util;
 
 import java.util.Collection;
 
-import com.xinyu.string.StringUtil;
+import com.xinyu.str.StrUtil;
 
 /**   
  * @Title:QwyUtil
@@ -41,7 +41,7 @@ public class QwyUtil {
      * @return boolean
      */
     public static boolean isNullAndEmpty(String str) {
-        return StringUtil.isNull(str);
+        return StrUtil.isNull(str);
     }
 
     /**
@@ -54,7 +54,7 @@ public class QwyUtil {
      * @return boolean
      */
     public static boolean isNullAndEmptyByStr(String str) {
-        return StringUtil.isNull2(str);
+        return StrUtil.isNull2(str);
     }
 
     /**
