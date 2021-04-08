@@ -26,17 +26,15 @@ public class GsonUtil {
      * @Description: 创建Gson对象,单例 
      * @return Gson
      */
-    public static Gson createGson() {
+    public static synchronized Gson createGson() {
         if (QwyUtil.isNullAndEmpty(gson)) {
-            synchronized (GsonUtil.class) {
-                if (QwyUtil.isNullAndEmpty(gson)) {
-                    gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").registerTypeAdapter(Date.class, new DateAdapter()).create();
-                }
-                return gson;
-            }
+            gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").registerTypeAdapter(Date.class, new DateAdapter()).create();
         }
         return gson;
+
     }
+
+
 
     public <T> T jsonToBean(String jsonStr, T t) {
         t = gson.fromJson(jsonStr, new TypeToken<T>() {}.getType());
