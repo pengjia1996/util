@@ -6,14 +6,13 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Random;
-import java.util.TreeMap;
 
-import com.xinyu.comparator.RoomComparator;
 import com.xinyu.orm.User;
+
 
 /**
  * 
@@ -25,28 +24,13 @@ import com.xinyu.orm.User;
 public class Test {
     public static void main(String[] args) {
 
-        RoomComparator comparator = new RoomComparator();
-        //comparator
-        TreeMap<String, List<User>> treeMap = new TreeMap<String, List<User>>(comparator);
+        Map<String, Object> map = new HashMap<String, Object>();
+        int currentPage = 1;
 
-        List<User> class3 = new ArrayList<User>();
-        User u1 = new User("1", "zhangsan", 0, null);
-        User u2 = new User("2", "lisi", 0, null);
-        class3.add(u1);
-        class3.add(u2);
+        map.put("currentPage", currentPage);
+        currentPage = 2;
 
-        List<User> class1 = new ArrayList<User>();
-        User u3 = new User("3", "wangwu", 0, null);
-        class1.add(u3);
-
-        treeMap.put("走班教室01", class3);
-        treeMap.put("101教室", class1);
-        Iterator<Entry<String, List<User>>> iterator = treeMap.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Entry<String, List<User>> entry = iterator.next();
-            System.err.println(entry.getKey() + "   人数:" + entry.getValue().size());
-        }
-
+        System.err.println(map);
     }
 
 
