@@ -2,8 +2,8 @@ package com.xinyu.comparator;
 
 import java.util.Comparator;
 
-import com.xinyu.util.ExtractContentEnum;
-import com.xinyu.util.StringUtil;
+import com.xinyu.string.ExtractContentEnum;
+import com.xinyu.string.StringUtil;
 
 
 public class RoomComparator implements Comparator<String> {

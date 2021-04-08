@@ -4,8 +4,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.Test;
 
 import com.xinyu.file.PropertiesUtil;
-import com.xinyu.util.ExtractContentEnum;
-import com.xinyu.util.StringUtil;
+import com.xinyu.string.ExtractContentEnum;
+import com.xinyu.string.StringUtil;
 
 /**   
  * @Title:TestStringUtil

@@ -1,4 +1,4 @@
-package com.xinyu.util;
+package com.xinyu.string;
 
 /**   
  * @Title:ExtractContentEnum

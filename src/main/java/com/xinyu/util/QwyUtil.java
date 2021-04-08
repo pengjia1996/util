@@ -2,6 +2,8 @@ package com.xinyu.util;
 
 import java.util.Collection;
 
+import com.xinyu.string.StringUtil;
+
 /**   
  * @Title:QwyUtil
  * @author:彭嘉

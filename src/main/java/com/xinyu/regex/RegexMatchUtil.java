@@ -1,8 +1,10 @@
-package com.xinyu.util;
+package com.xinyu.regex;
 
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
+
+import com.xinyu.util.QwyUtil;
 
 /**
  * @Title:RegexMatchUtil
