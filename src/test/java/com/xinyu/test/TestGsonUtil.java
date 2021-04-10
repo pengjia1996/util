@@ -1,5 +1,6 @@
 package com.xinyu.test;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,26 +20,35 @@ import com.xinyu.orm.User;
  */
 public class TestGsonUtil {
     public static void main(String[] args) {
-        Gson gson = GsonUtil.createGson();
-
+        Gson gson = GsonUtil.getGson();
         User u1 = new User("1", "xiaohei", 18, new Date());
         User u2 = new User("2", "", 16, null);
         List<User> list = new ArrayList<User>();
         list.add(u1);
         list.add(u2);
+
+        System.err.println(list);
         String json = gson.toJson(list);
         System.err.println(json);
 
+        ArrayList<User> list2 = gson.fromJson(json, new ArrayList<User>().getClass());
+        System.err.println(list2);
 
-        Object fromJson = gson.fromJson(json, new TypeToken<List<User>>() {}.getType());
-        System.err.println(fromJson);
+        TypeToken<List<User>> typeToken = new TypeToken<List<User>>() {};
+        System.err.println(typeToken.getClass());
+        System.err.println(typeToken.getType());
+
+        List<User> list3 = gson.fromJson(json, typeToken.getType());
+        System.err.println(list3);
+
+
 
 
     }
 
     @Test
     public void test1() {
-        Gson gson = GsonUtil.createGson();
+        Gson gson = GsonUtil.getGson();
 
         User u1 = new User("1", "xiaohei", 18, new Date());
 
