@@ -21,8 +21,7 @@ public class MoneyUtil {
     * @return Long 转换好的金额(单位分)
     */
     public static Long yuanConvertFen(String money) {
-        logger.info("yuanConvertFen(String money)");
-        return RegexMatchUtil.isNumberByLargeRange(money) ? null : Calculator.calcNumber(money, 100, "*").longValue();
+        return RegexMatchUtil.isNumberByLargeRange(money) ? Calculator.calcNumber(money, 100, "*").longValue() : null;
     }
 
 }
