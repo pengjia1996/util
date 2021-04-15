@@ -15,7 +15,7 @@
 	<dependencies>
 	
 		<!-- start 工具包  -->
-		<dependency>
+		 <dependency>
 		    <groupId>cn.hutool</groupId>
 		    <artifactId>hutool-all</artifactId>
 		    <version>5.6.3</version>

@@ -27,19 +27,21 @@ public class TestGsonUtil {
         list.add(u1);
         list.add(u2);
 
-        System.err.println(list);
+        // System.err.println(list);
         String json = gson.toJson(list);
-        System.err.println(json);
+        // System.err.println(json);
 
         ArrayList<User> list2 = gson.fromJson(json, new ArrayList<User>().getClass());
-        System.err.println(list2);
+        // System.err.println(list2);
 
         TypeToken<List<User>> typeToken = new TypeToken<List<User>>() {};
         System.err.println(typeToken.getClass());
         System.err.println(typeToken.getType());
 
         List<User> list3 = gson.fromJson(json, typeToken.getType());
-        System.err.println(list3);
+        // System.err.println(list3);
+
+        /*new TypeToken<List<User>>() {}.getType()*/
 
 
 

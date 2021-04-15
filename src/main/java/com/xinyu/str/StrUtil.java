@@ -17,9 +17,9 @@ public class StrUtil {
 
     /**
      * 判断字符串是否为空
-     * @param name
+     *
+     * @param str
      * @return boolean
-     * 
      */
     public static boolean isNull(String str) {
         boolean isNull = str == null || "".equals(str.trim()) || "null".equals(str.trim());
@@ -30,12 +30,13 @@ public class StrUtil {
 
     /**
      * 大范围空判断字符串是否为空
+     *
      * @param str 要判断的字符
      * @return boolean true为空,false不为空
      */
     public static boolean isNull2(String str) {
         boolean isNull = str == null || "".equals(str.trim()) || "null".equals(str.trim()) || "[]".equals(str.trim()) || "''".equals(str.trim())
-            || "\"\"".equals(str.trim()) || "{}".equals(str.trim()) || "undefined".equals(str.trim());
+                || "\"\"".equals(str.trim()) || "{}".equals(str.trim()) || "undefined".equals(str.trim());
         logger.info("isNull:" + isNull);
         return isNull;
 
@@ -92,12 +93,13 @@ public class StrUtil {
 
     /**
      * 将纯数字字符串按照指定方式替换成*
-     * @date 2020年6月15日 下午2:49:46
+     *
      * @param numberStr 数字字符串
      * @param startNum  前面要显示的位数
      * @param endNUm    后面要显示的位数
      * @param num       显示的位数,为null时,显示位数为 bankCard.length-(startNum+endNUm)
      * @return String 操作后的字符
+     * @date 2020年6月15日 下午2:49:46
      */
     public static String replaceNumber(String numberStr, int startNum, int endNUm, Integer num) throws Exception {
         String resultStr = "";
@@ -127,9 +129,10 @@ public class StrUtil {
 
     /**
      * 提取字符串中的指定内容
+     *
      * @param str                待操作的字符串
      * @param extractContentEnum 要提取的数据类型 如中文,数字,等
-     * @return 从字符串中提取的内容, null 提取失败
+     * @return String 从字符串中提取的内容, null 提取失败
      * @date:2020年11月17日 下午6:43:34
      */
     public static String extractContent(String str, ExtractContentEnum extractContentEnum) {
@@ -160,13 +163,13 @@ public class StrUtil {
     /**
      * 字符串格式转换,对格式类似'xxx','xxx','xxx'的字符进行转换
      *
-     * @date 2021/4/6 11:56 
-     * @param str 待转换的字符串
-     * @param separated 待转换的字符串的分隔符
+     * @param str        待转换的字符串
+     * @param separated  待转换的字符串的分隔符
      * @param includeStr 待转换的字符串元素被包裹的符号
      * @return java.lang.String
+     * @date 2021/4/6 11:56
      */
-    public static String strFormatConvert(String str, String separated,String includeStr ) {
+    public static String strFormatConvert(String str, String separated, String includeStr) {
         if (!QwyUtil.isNullAndEmpty(str)) {
             String[] arr = str.split(separated);
             StringBuffer resultStr = new StringBuffer();
@@ -181,7 +184,6 @@ public class StrUtil {
             return "";
         }
     }
-
 
 
 }
