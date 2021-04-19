@@ -23,7 +23,7 @@ public class StrUtil {
      */
     public static boolean isNull(String str) {
         boolean isNull = str == null || "".equals(str.trim()) || "null".equals(str.trim());
-        logger.info("isNull:" + isNull);
+        // logger.info("isNull:" + isNull);
         return isNull;
 
     }

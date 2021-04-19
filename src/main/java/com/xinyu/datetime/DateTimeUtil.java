@@ -22,7 +22,11 @@ public class DateTimeUtil {
 
     private static final Logger logger = Logger.getLogger(DateTimeUtil.class);
 
-    private static Map<String, SimpleDateFormat> map = new ConcurrentHashMap<String, SimpleDateFormat>();
+    /**
+     * 时间格式map
+     * <时间格式字符串,时间格式对象>
+     */
+    private static Map<String, SimpleDateFormat> formatMap = new ConcurrentHashMap<String, SimpleDateFormat>();
 
 
     /**
@@ -33,11 +37,11 @@ public class DateTimeUtil {
      * @return SimpleDateFormat  日期格式化对象
      */
     public static synchronized SimpleDateFormat getSimpleDateFormat(String pattern) {
-        if (!map.containsKey(pattern)) {
+        if (!formatMap.containsKey(pattern)) {
             SimpleDateFormat format = new SimpleDateFormat(pattern);
-            map.put(pattern, format);
+            formatMap.put(pattern, format);
         }
-        return map.get(pattern);
+        return formatMap.get(pattern);
     }
 
     /**
@@ -45,11 +49,11 @@ public class DateTimeUtil {
      */
     public static synchronized SimpleDateFormat fmDateyyyyMMddHHmmssSSS() {
         String pattern = "yyyy-MM-dd HH:mm:ss:SSS";
-        if (!map.containsKey(pattern)) {
+        if (!formatMap.containsKey(pattern)) {
             SimpleDateFormat format = new SimpleDateFormat(pattern);
-            map.put(pattern, format);
+            formatMap.put(pattern, format);
         }
-        return map.get(pattern);
+        return formatMap.get(pattern);
     }
 
 
@@ -122,7 +126,7 @@ public class DateTimeUtil {
     }
 
     /**
-     * 获取两个时间范围之间的日期,不包边界时间的日期
+     * 获取两个时间范围之间的日期,不包边界时间日期
      * @author 彭嘉
      * @date 2021年4月14日 下午3:16:14    
      * @param minTime 时间范围(最小时间)

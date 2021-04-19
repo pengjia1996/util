@@ -64,11 +64,13 @@ public class PropertiesUtil {
 
                 } else {
                     System.err.println("配置文件路径为空,默认从类路径加载log4j.properties文件");
+                    // TODO
                 }
 
 
             } catch (Exception e) {
                 e.printStackTrace();
+                System.err.println("获取log4j日志属性文件路径失败");
             }
         }
 
@@ -89,21 +91,24 @@ public class PropertiesUtil {
         if (QwyUtil.isNullAndEmpty(javaPropertiesUrl)) {
             try {
                 if (QwyUtil.isNullAndEmpty(getPropertiesUrl())) {
-                    System.err.println("配置文件路径获取失败,默认从类路径加载查找");
-
+                    logger.info("配置文件路径获取失败,默认从类路径加载查找");
+                    // TODO
                 } else {
                     String pathName = getPropertiesUrl() + "/java.properties";
+                    // 判断文件是否存在
                     if (FileUtil.exist(pathName)) {
-                        System.err.println("请检查[" + pathName + "]路径下该文件是否存在");
-                        return null;
-                    } else {
+                        // 存在
                         javaPropertiesUrl = pathName;
                         return javaPropertiesUrl;
+                    } else {
+                        // 不存在
+                        logger.info("请检查[" + pathName + "]路径下该文件是否存在");
+                        return null;
                     }
 
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("java.properties文件的路径出错", e);
                 return null;
             }
 
@@ -135,8 +140,7 @@ public class PropertiesUtil {
             }
             return value;
         } catch (Exception e) {
-            e.printStackTrace();
-            logger.error(e.getMessage(), e);
+            logger.error("获取key的值出错", e);
         } finally {
             if (in != null) {
                 try {
@@ -165,14 +169,14 @@ public class PropertiesUtil {
                 Properties prop = new Properties();
                 InputStream in = PropertiesUtil.class.getResourceAsStream("/properties_url.properties");
                 if (QwyUtil.isNullAndEmpty(in)) {
-                    System.err.println("请检查类加载后根路径下是否存在properties_url.properties文件");
+                    logger.info("请检查类加载后根路径下是否存在properties_url.properties文件");
                     return null;
                 }
                 prop.load(in);
                 // 避免空指针
                 String property = prop.getProperty("propertiesUrl");
                 if (QwyUtil.isNullAndEmpty(property)) {
-                    System.err.println("配置文件的路径获取失败,请检查properties_url.properties文件是否存在key(propertiesUrl)");
+                    logger.info("配置文件的路径获取失败,请检查properties_url.properties文件是否存在key(propertiesUrl)");
                     return null;
                 }
 
@@ -182,7 +186,7 @@ public class PropertiesUtil {
                     propertiesUrl = path;
                     return propertiesUrl;
                 } else {
-                    System.err.println("请检查该路径[" + path + "]是否存在,配置文件是否存在");
+                    logger.info("请检查该路径[" + path + "]是否存在,配置文件是否存在");
                     return null;
                 }
 
