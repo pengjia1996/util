@@ -7,10 +7,8 @@ import com.google.gson.GsonBuilder;
 import com.xinyu.util.QwyUtil;
 
 /**   
- * @Title:GsonUtil
+ * gson操作公共类
  * @author:彭嘉
- * @date:2020年11月5日 下午5:04:27  
- * @Description:gson操作公共类   
  */
 public class GsonUtil {
 
@@ -18,10 +16,11 @@ public class GsonUtil {
     // 反序列使用 new TypeToken<List<User>>() {}.getType()
     private static Gson gson = null;
 
+    private static Gson gson2 = null;
+
     /**
      * 
-     * 获取Gson对象,单例 
-     * @date:2020年11月9日 下午6:37:23  
+     * 获取Gson对象,单例
      * @return Gson
      */
     public static synchronized Gson getGson() {
@@ -30,6 +29,22 @@ public class GsonUtil {
         }
         return gson;
 
+    }
+
+    /* *
+     * 生成Gson ,兼容时间戳
+     *
+     * @return
+     */
+    public static synchronized Gson getGson2() {
+        if (QwyUtil.isNullAndEmpty(gson2)) {
+            // 日期时间戳转换
+            gson2 = new GsonBuilder()
+                .registerTypeAdapter(Date.class, new TimestampAdapter())
+                .create();
+
+        }
+        return gson2;
     }
 
 

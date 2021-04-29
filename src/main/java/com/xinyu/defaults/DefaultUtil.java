@@ -2,16 +2,16 @@ package com.xinyu.defaults;
 
 import java.util.List;
 
-/**  
+/**
  * 默认公共类
- * @author:彭嘉
- * @date:2021年4月15日 上午10:25:42   
+ *
+ * @author 彭嘉
  */
 public class DefaultUtil {
 
     /**
      * obj对象为空返回对象的默认值 0L
-     * @date 2021年4月15日 上午10:28:32    
+     *
      * @param obj
      * @return Long
      */
@@ -20,8 +20,8 @@ public class DefaultUtil {
     }
 
     /**
+     *
      * obj对象为空返回对象的默认值 0
-     * @date 2021年4月15日 上午10:28:32    
      * @param obj
      * @return Integer
      */
@@ -30,16 +30,24 @@ public class DefaultUtil {
     }
 
     /**
-     * 
-     * @author 彭嘉
-     * @date 2021年4月16日 上午3:05:57
-     * @description 获取结合的大小      
+     * 获取集合的大小
      * @param <T>
      * @param list
      * @return int
+     * @author 彭嘉
      */
     public static <T> int getListSize(List<T> list) {
         return list == null ? 0 : list.size();
+    }
+
+    /**
+     * obj为空时返回""空字符,不为空返回字符串
+     * @param obj
+     * @return String
+     * @author 彭嘉
+     */
+    public static String getString(Object obj) {
+        return obj == null ? "" : obj + "";
     }
 
 }

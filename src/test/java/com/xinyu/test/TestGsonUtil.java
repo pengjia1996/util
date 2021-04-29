@@ -20,6 +20,22 @@ import com.xinyu.orm.User;
  */
 public class TestGsonUtil {
     public static void main(String[] args) {
+
+
+        Gson gson = GsonUtil.getGson2();
+        User u1 = new User("1", "xiaohei", 18, new Date());
+        User u2 = new User("2", "", 16, null);
+        List<User> list = new ArrayList<User>();
+        list.add(u1);
+        list.add(u2);
+        String json = gson.toJson(list);
+        System.err.println(json);
+        List<User> list2=gson.fromJson(json,new TypeToken<List<User>>() {}.getType());
+        System.err.println(list2);
+    }
+
+    @Test
+    public void test2(){
         Gson gson = GsonUtil.getGson();
         User u1 = new User("1", "xiaohei", 18, new Date());
         User u2 = new User("2", "", 16, null);
@@ -42,10 +58,6 @@ public class TestGsonUtil {
         // System.err.println(list3);
 
         /*new TypeToken<List<User>>() {}.getType()*/
-
-
-
-
     }
 
     @Test

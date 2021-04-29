@@ -13,10 +13,8 @@ import com.google.gson.JsonParseException;
 
 /**
  * 
- * @Title:DateAdapter
+ * google json字符转json对象时日期适配
  * @author:彭嘉
- * @date:2020年11月9日 下午6:34:04  
- * @Description:google json字符转json对象时日期适配
  */
 public class DateAdapter implements JsonDeserializer<Date> {
     private final DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -24,8 +22,7 @@ public class DateAdapter implements JsonDeserializer<Date> {
     /**
      * 
      * <p>Title: deserialize</p>
-     * @author:彭嘉
-     * @date:2020年11月6日下午4:03:20  
+     * @author 彭嘉
      * <p>Description: 自定义反序列化器</p>   
      * @param jsonElement 反序列化的json数据
      * @param type 要反序列化的对象类型
@@ -40,7 +37,8 @@ public class DateAdapter implements JsonDeserializer<Date> {
             return df.parse(jsonElement.getAsString());
         } catch (ParseException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
+
     }
 }

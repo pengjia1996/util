@@ -25,8 +25,6 @@ public class TestRedisUtil {
      */
     @Test
     public void testGetJedis() throws InterruptedException {
-
-
         for (int i = 0; i < 100; i++) {
             new Thread() {
                 @Override
