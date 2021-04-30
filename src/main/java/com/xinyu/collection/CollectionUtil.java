@@ -106,7 +106,36 @@ public class CollectionUtil {
     }
 
     /**
+     * 
+     * @Title:getKeyByList
+     * @author:彭嘉
+     * @date:2020年9月29日 下午4:17:13  
+     * @Description:   拼接泛型集合中对象的某属性 返回格式 'xxx','xxx','xxx'
+     * @param <T> 集合的类型
+     * @param list 泛型集合
+     * @param key 集合中对象的属性名称
+     * @return String 拼接后的字符串
+     */
+    public static <T> String getKeyByList(List<T> list, String key) {
+        return getKeyByList(list, key, ",", "'");
+    }
+
+    /**
      * @Title:toSplitStrByListObjKey
+     * @author:彭嘉
+     * @date:2019年9月30日 下午13:08
+     * @Description 
+     * @param tList 需要转换成map的list 
+     * @param kName list中对象的属性名称 
+     * @param separator 拼接的分隔符
+     * @return String
+     */
+    public static <T> String getKeyByList(List<T> tList, String kName, String separator) {
+        return getKeyByList(tList, kName, separator, null);
+    }
+
+    /**
+     * @Title:getKeyByList
      * @author:彭嘉
      * @date:2019年9月30日 下午13:08
      * @Description 
@@ -123,32 +152,31 @@ public class CollectionUtil {
      * @param includeStr 元素被包裹的符号
      * @return String
      */
-    public static <T> String toSplitStrByListObjKey(List<T> tList, String kName, String separator,
-        String includeStr) {
+    public static <T> String getKeyByList(List<T> tList, String kName, String separator, String includeStr) {
         StringBuffer sb = new StringBuffer();
         try {
             if (QwyUtil.isNullAndEmpty(tList)) {
                 logger.info("vList is null,要拼接的集合不能为空");
                 return "";
-            } 
-            
+            }
+
             if (QwyUtil.isNullAndEmpty(kName)) {
                 logger.info("kName is null,集合中元素的属性名称不能为空");
                 return "";
             }
-            
+
             if (QwyUtil.isNullAndEmpty(separator)) {
                 logger.info("separator is null,要拼接的分隔符不能为空");
                 return "";
             }
-            
+
             // 获取kName的Field
             Field kField = ReflectUtil.getField(tList.get(0).getClass(), kName);
             if (QwyUtil.isNullAndEmpty(kField)) {
                 logger.info("根据kName，获取不到Field(对象的属性)");
                 return "";
             }
-            
+
             if (QwyUtil.isNullAndEmpty(includeStr)) {
                 // 循环lsit,获取对象指定kName的属性的值，作为key
                 for (T t : tList) {
@@ -163,16 +191,13 @@ public class CollectionUtil {
                     }
                 }
             }
-            
+
             if (sb.length() > 0) {
                 // 删除最后一个字符（分隔符）并返回
                 return sb.deleteCharAt(sb.length() - 1).toString();
             }
-
-            
-            
         } catch (Exception e) {
-            logger.error("toSplitStrBylistModelKey,将list中某个属性的值拼装成string err", e);
+            logger.error("getKeyByList,将list中某个属性的值拼装成string err", e);
         }
         return "";
     }

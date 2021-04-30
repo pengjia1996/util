@@ -6,12 +6,12 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import com.xinyu.orm.User;
+
+import cn.hutool.core.util.NumberUtil;
 
 
 /**
@@ -24,13 +24,8 @@ import com.xinyu.orm.User;
 public class Test {
     public static void main(String[] args) {
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        int currentPage = 1;
-
-        map.put("currentPage", currentPage);
-        currentPage = 2;
-
-        System.err.println(map);
+        String str = NumberUtil.toStr(234532123423.383300);
+        System.err.println(str);
     }
 
 

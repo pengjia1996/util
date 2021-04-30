@@ -14,6 +14,17 @@
 	<!-- 依赖 -->
 	<dependencies>
 	
+	<!-- 
+		https://www.rongcloud.cn/docs/server_sdk_api/user/user.html#update 
+		用户群组,消息聊天
+	-->
+	<dependency>
+	    <groupId>cn.rongcloud.im</groupId>
+	    <artifactId>server-sdk-java</artifactId>
+	    <version>3.0.1</version>
+	</dependency>
+	
+	
 		<!-- start 工具包  -->
 		 <dependency>
 		    <groupId>cn.hutool</groupId>

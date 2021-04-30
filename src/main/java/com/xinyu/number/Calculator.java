@@ -1,4 +1,4 @@
-package com.xinyu.calculate;
+package com.xinyu.number;
 
 import java.math.BigDecimal;
 
@@ -28,9 +28,9 @@ public class Calculator {
      * @return BigDecimal
      * @throws Exception 计算异常;
      */
-    public static BigDecimal calcNumber(Object num1, Object num2, String calcSymbol, int remainNumPra) {
+    public static BigDecimal calcNumber(Object num1, Object num2, String calcSymbol, int remainNum) {
         try {
-            int remainNum = remainNumPra < 0 ? 0 : remainNumPra;
+             remainNum = remainNum < 0 ? 0 : remainNum;
             if (!QwyUtil.isNullAndEmpty(num1) && !QwyUtil.isNullAndEmpty(num2)) {
                 BigDecimal decimal = new BigDecimal(num1.toString());
                 BigDecimal decima2 = new BigDecimal(num2.toString());

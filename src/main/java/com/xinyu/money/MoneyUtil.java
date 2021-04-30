@@ -2,7 +2,7 @@ package com.xinyu.money;
 
 import org.apache.log4j.Logger;
 
-import com.xinyu.calculate.Calculator;
+import com.xinyu.number.Calculator;
 import com.xinyu.regex.RegexMatchUtil;
 
 /**

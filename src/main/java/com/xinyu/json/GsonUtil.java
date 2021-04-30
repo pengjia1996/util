@@ -31,9 +31,9 @@ public class GsonUtil {
 
     }
 
-    /* *
-     * 生成Gson ,兼容时间戳
+    /**
      *
+     * 生成Gson ,兼容时间戳
      * @return
      */
     public static synchronized Gson getGson2() {
@@ -46,6 +46,7 @@ public class GsonUtil {
         }
         return gson2;
     }
+
 
 
 }

@@ -33,26 +33,20 @@ import com.xinyu.json.JSONObjectUtil;
 import com.xinyu.util.QwyUtil;
 
 
-
-/**   
- * @Title:NetWorkUtil
- * @author:彭嘉
- * @date:2020年10月28日 下午4:13:50  
- * @Description:网络通信相关操作公共类   
+/**
+ * 网络通信相关操作公共类
+ * @author 彭嘉
  */
 public class NetWorkUtil {
     private static Logger logger = Logger.getLogger(NetWorkUtil.class);
 
 
     /**
-     * 
-     * @Title:httpPostFile
-     * @author:彭嘉
-     * @date:2020年10月27日 下午4:25:04  
-     * @Description: http上传文件     
-     * @param url 链接
+     * http上传文件
+     * @param url    链接
      * @param params 参数
-     * @return Map<String,String> code 状态码,msg 描述信息, data 响应数据
+     * @return Map<String, String> code 状态码,msg 描述信息, data 响应数据
+     * @author 彭嘉
      */
     public static Map<String, String> httpPostFile(String url, Map<String, Object> params) {
         logger.info("into httpPostFile method");
@@ -65,9 +59,9 @@ public class NetWorkUtil {
                 Object object = entry.getValue();
                 String key = entry.getKey();
                 if (object instanceof File) {
-                    reqEntity.addPart(key, new FileBody((File)object));
+                    reqEntity.addPart(key, new FileBody((File) object));
                 } else if (object instanceof String) {
-                    reqEntity.addPart(key, new StringBody((String)object));
+                    reqEntity.addPart(key, new StringBody((String) object));
                 } /*else if (object instanceof byte[]) {
                     reqEntity.addPart(key, new ByteArrayBody((byte[])object,""));
                   }*/
@@ -110,9 +104,10 @@ public class NetWorkUtil {
 
     /**
      * 用Post的方法访问网络;
-     * @param url 访问地址 POST访问
+     *
+     * @param url           访问地址 POST访问
      * @param parametersMap 参数 如果需要传递识别码,则以这种格式传递:
-     * <br>  map.put("authorization", "69dfe6ff-afdb-4678-984e-b23b22f5c88c");
+     *                      <br>  map.put("authorization", "69dfe6ff-afdb-4678-984e-b23b22f5c88c");
      * @return Map<String, Object>
      */
     public static Map<String, Object> accessIntentByPost(String url, Map<String, Object> parametersMap) {
@@ -121,12 +116,14 @@ public class NetWorkUtil {
         return accessIntent(url, parametersMap, "POST");
     }
 
-    /**访问网络
-     * @param url 访问地址 get访问,直接在地址后面带参数;
+    /**
+     * 访问网络
+     *
+     * @param url    访问地址 get访问,直接在地址后面带参数;
      * @param values 参数 当POST访问时,才需要用到此参数;如果需要传递识别码,则以这种格式传递:
-     * <br> &nbsp;&nbsp;&nbsp;&nbsp; map.put("authorization", "69dfe6ff-afdb-4678-984e-b23b22f5c88c");
+     *               <br> &nbsp;&nbsp;&nbsp;&nbsp; map.put("authorization", "69dfe6ff-afdb-4678-984e-b23b22f5c88c");
      * @param method 访问方法;POST,GET
-     * @return  Map&lt;String,Object&gt;
+     * @return Map&lt;String,Object&gt;
      */
     public static Map<String, Object> accessIntent(String url, Map<String, Object> values, String method) {
 
@@ -139,7 +136,7 @@ public class NetWorkUtil {
         try {
             DefaultHttpClient client = new DefaultHttpClient();
             if (url.indexOf("HTTPS:") > -1) {
-                client = (DefaultHttpClient)WebClientDevWrapper.wrapClient(client);
+                client = (DefaultHttpClient) WebClientDevWrapper.wrapClient(client);
             }
             client.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 10000);
             client.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 20000);
