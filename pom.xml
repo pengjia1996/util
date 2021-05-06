@@ -14,17 +14,38 @@
 	<!-- 依赖 -->
 	<dependencies>
 	
-	<!-- 
-		https://www.rongcloud.cn/docs/server_sdk_api/user/user.html#update 
-		用户群组,消息聊天
-	-->
-	<dependency>
-	    <groupId>cn.rongcloud.im</groupId>
-	    <artifactId>server-sdk-java</artifactId>
-	    <version>3.0.1</version>
-	</dependency>
-	
-	
+		<!-- 
+			https://www.rongcloud.cn/docs/server_sdk_api/user/user.html#update 
+			用户群组,消息聊天
+		-->
+		<dependency>
+		    <groupId>cn.rongcloud.im</groupId>
+		    <artifactId>server-sdk-java</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>4.1.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>4.1.1</version>
+		</dependency>
+
+
+
 		<!-- start 工具包  -->
 		 <dependency>
 		    <groupId>cn.hutool</groupId>
